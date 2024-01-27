@@ -1,0 +1,103 @@
+#include <unistd.h>
+#include <stdio.h>
+
+void print_top_row(int x_max)
+{
+    int x_it;
+    x_it = 0;
+
+    while (x_it <x_max)
+    {
+        if (x_it == 0)
+        {
+            write(1, "/", 1);
+        }
+        else if (x_it == x_max - 1)
+        {
+            write(1, "\\", 1);
+        }
+        else
+        {
+            write(1, "*", 1);
+        }
+        x_it++;
+    }
+}
+
+void print_bot_row(int x_max)
+{
+    int x_it;
+    x_it = 0;
+    while (x_it < x_max)
+    {
+        if (x_it == 0)
+        {
+            write(1, "\\", 1);
+        }
+        else if (x_it == x_max - 1)
+        {
+            write(1, "/", 1);
+        }
+        else
+        {
+            write(1, "*", 1);
+        }
+        x_it++;
+    }
+}
+
+void print_mid_row(int x_max)
+{
+    int x_it;
+    x_it = 0;
+
+    while (x_it < x_max)
+    {
+        if (x_it == 0)
+        {
+            write(1, "*", 1);
+        }
+        else if (x_it == x_max - 1)
+        {
+            write(1, "*", 1);
+        }
+        else
+        {
+            write(1, "  ", 1);
+        }
+        x_it++;
+    }
+}
+
+
+void rush(int x_max, int y_max)
+{
+    int y_it;
+    y_it = 0;
+    while (y_it < y_max)
+    {
+        if (y_it == 0)
+        {
+            print_top_row(x_max);
+        }
+        else if (y_it == y_max - 1)
+        {
+            print_bot_row(x_max);
+        }
+        else
+        {
+            print_mid_row(x_max);
+        }
+        write (1, "\n", 1);
+        y_it++;
+    }
+}
+
+int main()
+{
+    rush(5,3);
+    return(0);
+}
+
+      
+   
